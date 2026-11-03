@@ -1,0 +1,13 @@
+song_id,artist_id,title,duration_seconds,genre,artist,country_code,country,role
+101,A6,Ella Baila Sola,165,Regional mexicano,Eslabon Armado,US,Estados Unidos,principal
+101,A7,Ella Baila Sola,165,Regional mexicano,Peso Pluma,MX,México,feat.
+102,A1,TQG,197,Reguetón,Karol G,CO,Colombia,principal
+102,A2,TQG,197,Reguetón,Shakira,CO,Colombia,feat.
+103,A2,Bzrp Music Sessions #53,213,Pop latino,Shakira,CO,Colombia,feat.
+103,A5,Bzrp Music Sessions #53,213,Pop latino,Bizarrap,AR,Argentina,principal
+104,A3,Flowers,200,Pop,Miley Cyrus,US,Estados Unidos,principal
+105,A4,Kill Bill,153,R&B,SZA,US,Estados Unidos,principal
+106,A8,Tití Me Preguntó,243,Reguetón,Bad Bunny,PR,Puerto Rico,principal
+107,A8,Me Porto Bonito,178,Reguetón,Bad Bunny,PR,Puerto Rico,principal
+107,A9,Me Porto Bonito,178,Reguetón,Chencho Corleone,PR,Puerto Rico,feat.
+108,A10,Calor de Agosto,185,Regional mexicano,Los del Pitic,MX,México,principal

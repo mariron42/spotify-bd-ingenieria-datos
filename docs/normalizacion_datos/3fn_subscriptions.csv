@@ -1,0 +1,5 @@
+subscription_id,name,monthly_price_mxn,has_ads
+1,Gratuita,0.00,t
+2,Premium,129.00,f
+3,Familiar,199.00,f
+4,Estudiante,79.00,f

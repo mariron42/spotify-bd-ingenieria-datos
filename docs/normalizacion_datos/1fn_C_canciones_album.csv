@@ -1,0 +1,9 @@
+album_id,song_id,album,release_year,cover,artist_id,artist,track_number,song
+201,101,Desvelado,2023,desvelado.jpg,A6,Eslabon Armado,6,Ella Baila Sola
+202,102,Mañana Será Bonito,2023,msb.jpg,A1,Karol G,6,TQG
+203,104,Endless Summer Vacation,2023,esv.jpg,A3,Miley Cyrus,1,Flowers
+204,105,SOS,2022,sos.jpg,A4,SZA,2,Kill Bill
+205,107,Un Verano Sin Ti,2022,uvst.jpg,A8,Bad Bunny,3,Me Porto Bonito
+205,106,Un Verano Sin Ti,2022,uvst.jpg,A8,Bad Bunny,4,Tití Me Preguntó
+206,103,Las Mujeres Ya No Lloran,2024,lmynl.jpg,A2,Shakira,11,Bzrp Music Sessions #53
+206,102,Las Mujeres Ya No Lloran,2024,lmynl.jpg,A2,Shakira,12,TQG

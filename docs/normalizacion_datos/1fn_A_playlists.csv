@@ -1,0 +1,6 @@
+playlist_id,name,created_at,email,subscription,monthly_price_mxn,has_ads
+10,Gym,2026-03-01,ana@mail.com,Premium,129.00,f
+11,Para estudiar,2026-04-10,ana@mail.com,Premium,129.00,f
+12,Gym,2026-05-02,luis@mail.com,Gratuita,0.00,t
+13,Viaje,2026-06-15,marta@mail.com,Familiar,199.00,f
+14,Favoritas,2026-06-20,luis@mail.com,Gratuita,0.00,t
