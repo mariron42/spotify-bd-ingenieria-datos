@@ -53,4 +53,4 @@ No hay datos de reproducciones: la pregunta de la canción más escuchada queda 
 
 ## Alcance de la validación
 
-El esquema, el seed, las consultas, las restricciones y los casos de transacción se ejecutaron en PostgreSQL 17 local y en PostgreSQL 18.6 mediante Docker Compose. Para la prueba de Docker se utilizó un clon local limpio y un volumen nuevo: la inicialización no presentó errores, las verificaciones terminaron correctamente y los dos errores señalados en las pruebas fueron intencionales. Aún falta publicar el repositorio y repetir la comprobación desde el clon de GitHub antes de entregarlo.
+El esquema, el seed, las consultas, las restricciones y los casos de transacción se ejecutaron en PostgreSQL 17 local y en PostgreSQL 18.6 mediante Docker Compose. Para la prueba final de Docker se utilizó un clon limpio de GitHub y un volumen nuevo: la inicialización no presentó errores, las verificaciones terminaron correctamente y los dos errores señalados en las pruebas fueron intencionales.
