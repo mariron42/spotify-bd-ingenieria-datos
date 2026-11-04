@@ -1,6 +1,6 @@
 # Base de datos transaccional de Spotify
 
-Modelo y datos de las tareas 2 y 3 de Ingeniería de Datos. Incluye las muestras A–D de Laura, el esquema PostgreSQL, las consultas y las pruebas de restricciones y transacciones. El proyecto es independiente del repositorio de la clínica veterinaria.
+Modelo y datos de las tareas 2 y 3 de Ingeniería de Datos. Incluye las muestras A–D de Laura, el esquema PostgreSQL, las consultas y las pruebas de restricciones y transacciones.
 
 ## Contenido
 
