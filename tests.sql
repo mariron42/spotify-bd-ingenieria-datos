@@ -29,9 +29,23 @@ FROM subscribers s WHERE NOT EXISTS (SELECT 1 FROM library_song ls WHERE ls.subs
 AND NOT EXISTS (SELECT 1 FROM library_album la WHERE la.subscriber_id=s.subscriber_id)
 ORDER BY 1,2,3;
 
-\echo '5. Canción más escuchada: no es calculable con los datos proporcionados.'
--- Falta registrar cada reproducción (canción y momento, por ejemplo). No se
--- puede inferir el número de escuchas a partir de playlists o bibliotecas.
+\echo '5. Canción más escuchada históricamente'
+SELECT s.song_id, s.title, sum(d.num_rep) AS reproducciones
+FROM songs s JOIN song_daily_play d USING (song_id)
+GROUP BY s.song_id, s.title ORDER BY reproducciones DESC, s.song_id LIMIT 1;
+
+\echo 'Top 100 de la última semana completa (UTC)'
+SELECT s.song_id, s.title, sum(d.num_rep) AS reproducciones
+FROM song_daily_play d JOIN songs s USING (song_id)
+WHERE d.play_date >= (date_trunc('week', now() AT TIME ZONE 'UTC')::date - 7)
+  AND d.play_date < date_trunc('week', now() AT TIME ZONE 'UTC')::date
+GROUP BY s.song_id, s.title ORDER BY reproducciones DESC, s.song_id LIMIT 100;
+
+\echo 'Las 20 canciones más escuchadas del suscriptor 1'
+SELECT s.song_id, s.title, p.num_rep FROM subscriber_song_play p
+JOIN songs s USING (song_id) WHERE p.subscriber_id = 1
+ORDER BY p.num_rep DESC, s.song_id LIMIT 20;
+
 
 \echo 'Verificación de los datos y resultados esperados'
 DO $$ BEGIN
@@ -132,6 +146,7 @@ CREATE TEMP TABLE before_delete AS
         (SELECT count(*) FROM playlists WHERE subscriber_id=900001) AS playlist_count,
         (SELECT count(*) FROM playlist_song WHERE playlist_id=900001) AS playlist_songs;
 BEGIN;
+DELETE FROM subscriber_song_play WHERE subscriber_id=900001;
 DELETE FROM playlist_song WHERE playlist_id IN (SELECT playlist_id FROM playlists WHERE subscriber_id=900001);
 DELETE FROM playlists WHERE subscriber_id=900001;
 DELETE FROM library_song WHERE subscriber_id=900001;
@@ -162,12 +177,14 @@ UNION ALL SELECT 'después', (SELECT count(*) FROM subscribers WHERE subscriber_
 CREATE TEMP TABLE before_catalog AS SELECT (SELECT count(*) FROM songs) AS songs,
  (SELECT count(*) FROM albums) AS albums, (SELECT count(*) FROM artists) AS artists;
 BEGIN;
+DELETE FROM subscriber_song_play WHERE subscriber_id=900001;
 DELETE FROM playlist_song WHERE playlist_id IN (SELECT playlist_id FROM playlists WHERE subscriber_id=900001);
 DELETE FROM playlists WHERE subscriber_id=900001;
 DELETE FROM library_song WHERE subscriber_id=900001;
 DELETE FROM library_album WHERE subscriber_id=900001;
 DELETE FROM libraries WHERE subscriber_id=900001;
 DELETE FROM profiles WHERE subscriber_id=900001;
+-- song_daily_play conserva el historial agregado; el top semanal no cambia.
 DELETE FROM subscribers WHERE subscriber_id=900001;
 COMMIT;
 DO $$ BEGIN
